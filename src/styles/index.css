@@ -1,0 +1,13 @@
+textarea {
+	border: solid black 1px;
+	width: 80vw;
+	height: 80vh;
+}
+
+body {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}

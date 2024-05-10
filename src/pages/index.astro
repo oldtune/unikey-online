@@ -1,5 +1,5 @@
 ---
-
+import "../styles/index.css";
 ---
 
 <html lang="en">
@@ -11,6 +11,68 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<textarea id="textEditor"></textarea>
 	</body>
+	<script>
+		let currentCursorIndex = -1;
+		let currentWord = null;
+		const primitiveVovel = {
+			a: true,
+			e: true,
+			o: true,
+			u: true,
+			i: true,
+		};
+
+		const textEditor = document.getElementById("textEditor");
+
+		textEditor.onkeyup = function (e) {
+			if (currentWord == null) {
+				currentWord = new Word(e.key);
+			} else {
+				currentWord.append(e.key);
+			}
+		};
+
+		textEditor.onmouseup = function (e) {
+			console.log(e);
+		};
+
+		class Word {
+			vovels = "";
+			prefix = "";
+			suffix = "";
+
+			constructor(word) {
+				if (!word || word.length == 0) {
+					return;
+				}
+
+				for (let i = 0; i < word.length; i++) {
+					let char = word[i];
+					if (primitiveVovel[char]) {
+						this.vovels += char;
+						continue;
+					}
+
+					if (this.vovels.length == 0) {
+						this.prefix += char;
+					} else {
+						this.suffix += char;
+					}
+				}
+			}
+
+			append(char) {	
+			if(primitiveVovel[char]){
+					
+					return;
+				}	
+			else{
+					if(this.vovels){
+					 		
+					}
+		}
+		}
+	</script>
 </html>
